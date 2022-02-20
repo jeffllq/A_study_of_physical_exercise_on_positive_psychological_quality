@@ -50,6 +50,10 @@ for i in raw_data['年龄'].values:
 raw_data = raw_data.drop(temp, axis=0).reset_index(drop=True)
 # print('总表\n',raw_data)
 
+##################################0-1编码代表性别和家庭所在地
+raw_data['性别'] = raw_data['性别']-1
+raw_data['家庭所在地'] = raw_data['家庭所在地']-1
+
 ##################################计算积极心理品质得分
 raw_data['认知'] = 0
 raw_data['人际'] = 0
@@ -81,6 +85,19 @@ for i in range(1, 63):
     raw_data['积极心理品质得分'] = raw_data['积极心理品质得分'] + raw_data[str(i)]
 raw_data['积极心理品质得分'] = raw_data['积极心理品质得分'] / 62
 raw_data = raw_data.round({'认知': 2, '人际': 2, '情感': 2, '公正': 2, '节制': 2, '超越': 2, '积极心理品质得分': 2})
+
+##################################根据问卷设置，部分题目的得分和程度反向，需要调整为正向
+#你的家庭经济情况；学生成绩；体育态度；心理积极品质所有题目
+raw_data['家庭经济情况'] = 5-raw_data['家庭经济情况']
+raw_data['学习成绩'] = 5-raw_data['学习成绩']
+raw_data['对待体育活动的态度'] = 4-raw_data['对待体育活动的态度']
+raw_data['认知'] = 5-raw_data['认知']
+raw_data['人际'] = 5-raw_data['人际']
+raw_data['情感'] = 5-raw_data['情感']
+raw_data['公正'] = 5-raw_data['公正']
+raw_data['节制'] = 5-raw_data['节制']
+raw_data['超越'] = 5-raw_data['超越']
+raw_data['积极心理品质得分'] = 5-raw_data['积极心理品质得分']
 
 ##################################IPAQ数据处理
 #数据清洗和异常值剔除:针对分钟数（1，-2）是该填的没填， （2，1） 不该填的填了   (1,2)该填但不清楚 （2，2）不该填，填了不清楚, (1,1)(2,-2)留下
@@ -137,4 +154,4 @@ for i in range(0, rows):
         raw_data.loc[i, '身体活动水平'] = 1
 
 print(raw_data)
-raw_data.to_csv('data/清洗后的研究数据20220204.csv', index=False,encoding='utf-8-sig')
+raw_data.to_csv('data/清洗后的研究数据20220220.csv', index=False,encoding='utf-8-sig')

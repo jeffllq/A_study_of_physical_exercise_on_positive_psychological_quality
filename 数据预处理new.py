@@ -155,3 +155,6 @@ for i in range(0, rows):
 
 print(raw_data)
 raw_data.to_csv('data/清洗后的研究数据20220220.csv', index=False,encoding='utf-8-sig')
+
+
+#剔除离群点

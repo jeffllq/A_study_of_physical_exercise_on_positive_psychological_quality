@@ -24,6 +24,34 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/data/聚类结果20220322.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/data/聚类结果20220322_剔除异常数据.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/data/聚类结果_只有运动.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/data/聚类结果_只有运动_剔除异常数据.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/tmp.csv">
           <value>
             <Attribute>
